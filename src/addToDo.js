@@ -1,4 +1,5 @@
 import plusIconImg from './images/plus.png';
+import './addToDo.css';
 
 export default function() {
     const plusIconDiv = document.createElement('div');
