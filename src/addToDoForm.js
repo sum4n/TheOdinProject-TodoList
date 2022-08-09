@@ -39,12 +39,12 @@ export default function() {
 
     const formSubmit = document.createElement('input');
     formSubmit.setAttribute('type', 'submit');
-    formSubmit.setAttribute('value', 'Submit');
+    formSubmit.setAttribute('value', 'Add');
 
     const formCancle = document.createElement('input');
     formCancle.setAttribute('type', 'button');
     formCancle.setAttribute('value', 'Cancle');
-    formCancle.setAttribute('id', 'button');
+    formCancle.setAttribute('id', 'cancleBtn');
 
     secFormDiv.append(inputPriority, formSubmit, formCancle);
 
