@@ -10,7 +10,7 @@ export default function() {
     
     plusIcon.addEventListener('click', showForm);
 
-    // plusIconDiv.appendChild(formDiv());
+    plusIconDiv.appendChild(formDiv());
 
     function showForm() {
         plusIconDiv.removeChild(plusIcon);

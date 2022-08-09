@@ -23,22 +23,30 @@ export default function() {
     prioritySet.setAttribute('value', 'Set Prioirity');
     prioritySet.textContent = "Set Priority";
 
-     const priorityLow = document.createElement('option');
+    const priorityLow = document.createElement('option');
     priorityLow.setAttribute('value', 'low');
     priorityLow.textContent = "Low";
 
-     const priorityMedium = document.createElement('option');
+    const priorityMedium = document.createElement('option');
     priorityMedium.setAttribute('value', 'medium');
     priorityMedium.textContent = "Medium";
 
-     const priorityHigh = document.createElement('option');
+    const priorityHigh = document.createElement('option');
     priorityHigh.setAttribute('value', 'high');
     priorityHigh.textContent = "High";
 
-
     inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
 
-    secFormDiv.append(inputPriority);
+    const formSubmit = document.createElement('input');
+    formSubmit.setAttribute('type', 'submit');
+    formSubmit.setAttribute('value', 'Submit');
+
+    const formCancle = document.createElement('input');
+    formCancle.setAttribute('type', 'button');
+    formCancle.setAttribute('value', 'Cancle');
+    formCancle.setAttribute('id', 'button');
+
+    secFormDiv.append(inputPriority, formSubmit, formCancle);
 
     formDiv.append(firstFormDiv, secFormDiv);
 
