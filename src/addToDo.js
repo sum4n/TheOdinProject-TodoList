@@ -8,11 +8,14 @@ export default function() {
     const plusIcon = document.createElement('img');
     plusIcon.src = plusIconImg;
     
-    plusIcon.addEventListener('click', () => {
-        alert("hello");
-    });
+    plusIcon.addEventListener('click', showForm);
 
-    plusIconDiv.appendChild(formDiv());
+    // plusIconDiv.appendChild(formDiv());
+
+    function showForm() {
+        plusIconDiv.removeChild(plusIcon);
+        plusIconDiv.appendChild(formDiv());
+    }
 
     plusIconDiv.appendChild(plusIcon);
 
