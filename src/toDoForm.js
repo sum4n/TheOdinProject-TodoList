@@ -8,9 +8,11 @@ export default function() {
     const inputTitle = document.createElement('input');
     inputTitle.setAttribute("type", "text");
     inputTitle.setAttribute("placeholder", "name");
+    inputTitle.setAttribute('id', 'title');
 
     const inputDate = document.createElement('input');
     inputDate.setAttribute("type", "date");
+    inputDate.setAttribute('id', 'taskDate');
 
     firstFormDiv.append(inputTitle, inputDate);
     // first div  ends
@@ -19,9 +21,10 @@ export default function() {
 
     const inputPriority = document.createElement('select');
     inputPriority.setAttribute('name', 'Priority');
+    inputPriority.setAttribute('id', 'priority');
 
     const prioritySet = document.createElement('option');
-    prioritySet.setAttribute('value', 'Set Prioirity');
+    prioritySet.setAttribute('value', '');
     prioritySet.textContent = "Set Priority";
 
     const priorityLow = document.createElement('option');
@@ -39,7 +42,7 @@ export default function() {
     inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
 
     const formSubmit = document.createElement('input');
-    formSubmit.setAttribute('type', 'submit');
+    formSubmit.setAttribute('type', 'button');
     formSubmit.setAttribute('value', 'Add');
     formSubmit.setAttribute('id', 'addBtn');
 
