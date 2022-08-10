@@ -1,5 +1,6 @@
 export default function() {
     const formDiv = document.createElement('form');
+    formDiv.setAttribute('id', 'qwert');
 
     // first div
     const firstFormDiv = document.createElement('div');
@@ -41,12 +42,12 @@ export default function() {
     formSubmit.setAttribute('type', 'submit');
     formSubmit.setAttribute('value', 'Add');
 
-    const formCancle = document.createElement('input');
-    formCancle.setAttribute('type', 'button');
-    formCancle.setAttribute('value', 'Cancle');
-    formCancle.setAttribute('id', 'cancleBtn');
+    const formCancel = document.createElement('input');
+    formCancel.setAttribute('type', 'button');
+    formCancel.setAttribute('value', 'Cancel');
+    formCancel.setAttribute('id', 'cancelBtn');
 
-    secFormDiv.append(inputPriority, formSubmit, formCancle);
+    secFormDiv.append(inputPriority, formSubmit, formCancel);
 
     formDiv.append(firstFormDiv, secFormDiv);
 
