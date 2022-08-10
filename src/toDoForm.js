@@ -1,59 +1,58 @@
-export default function() {
-    const formDiv = document.createElement('form');
-    formDiv.setAttribute('id', 'qwert');
 
-    // first div
-    const firstFormDiv = document.createElement('div');
+const formDiv = document.createElement('form');
+formDiv.setAttribute('id', 'qwert');
 
-    const inputTitle = document.createElement('input');
-    inputTitle.setAttribute("type", "text");
-    inputTitle.setAttribute("placeholder", "name");
-    inputTitle.setAttribute('id', 'title');
+// first div
+const firstFormDiv = document.createElement('div');
 
-    const inputDate = document.createElement('input');
-    inputDate.setAttribute("type", "date");
-    inputDate.setAttribute('id', 'taskDate');
+const inputTitle = document.createElement('input');
+inputTitle.setAttribute("type", "text");
+inputTitle.setAttribute("placeholder", "name");
+inputTitle.setAttribute('id', 'title');
 
-    firstFormDiv.append(inputTitle, inputDate);
-    // first div  ends
-    // second form div
-    const secFormDiv = document.createElement('div');
+const inputDate = document.createElement('input');
+inputDate.setAttribute("type", "date");
+inputDate.setAttribute('id', 'taskDate');
 
-    const inputPriority = document.createElement('select');
-    inputPriority.setAttribute('name', 'Priority');
-    inputPriority.setAttribute('id', 'priority');
+firstFormDiv.append(inputTitle, inputDate);
+// first div  ends
+// second form div
+const secFormDiv = document.createElement('div');
 
-    const prioritySet = document.createElement('option');
-    prioritySet.setAttribute('value', '');
-    prioritySet.textContent = "Set Priority";
+const inputPriority = document.createElement('select');
+inputPriority.setAttribute('name', 'Priority');
+inputPriority.setAttribute('id', 'priority');
 
-    const priorityLow = document.createElement('option');
-    priorityLow.setAttribute('value', 'low');
-    priorityLow.textContent = "Low";
+const prioritySet = document.createElement('option');
+prioritySet.setAttribute('value', '');
+prioritySet.textContent = "Set Priority";
 
-    const priorityMedium = document.createElement('option');
-    priorityMedium.setAttribute('value', 'medium');
-    priorityMedium.textContent = "Medium";
+const priorityLow = document.createElement('option');
+priorityLow.setAttribute('value', 'low');
+priorityLow.textContent = "Low";
 
-    const priorityHigh = document.createElement('option');
-    priorityHigh.setAttribute('value', 'high');
-    priorityHigh.textContent = "High";
+const priorityMedium = document.createElement('option');
+priorityMedium.setAttribute('value', 'medium');
+priorityMedium.textContent = "Medium";
 
-    inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
+const priorityHigh = document.createElement('option');
+priorityHigh.setAttribute('value', 'high');
+priorityHigh.textContent = "High";
 
-    const formSubmit = document.createElement('input');
-    formSubmit.setAttribute('type', 'button');
-    formSubmit.setAttribute('value', 'Add');
-    formSubmit.setAttribute('id', 'addBtn');
+inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
 
-    const formCancel = document.createElement('input');
-    formCancel.setAttribute('type', 'button');
-    formCancel.setAttribute('value', 'Cancel');
-    formCancel.setAttribute('id', 'cancelBtn');
+const formSubmit = document.createElement('input');
+formSubmit.setAttribute('type', 'button');
+formSubmit.setAttribute('value', 'Add');
+formSubmit.setAttribute('id', 'addBtn');
 
-    secFormDiv.append(inputPriority, formSubmit, formCancel);
+const formCancel = document.createElement('input');
+formCancel.setAttribute('type', 'button');
+formCancel.setAttribute('value', 'Cancel');
+formCancel.setAttribute('id', 'cancelBtn');
 
-    formDiv.append(firstFormDiv, secFormDiv);
+secFormDiv.append(inputPriority, formSubmit, formCancel);
 
-    return formDiv;
-}
+formDiv.append(firstFormDiv, secFormDiv);
+
+export {formDiv, formCancel, formSubmit};
