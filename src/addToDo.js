@@ -1,6 +1,6 @@
 import plusIconImg from './images/plus.png';
 import './addToDo.css';
-import formDiv from './addToDoForm';
+import formDiv from './toDoForm';
 
 export default function() {
     const plusIconDiv = document.createElement('div');

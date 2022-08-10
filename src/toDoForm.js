@@ -41,6 +41,7 @@ export default function() {
     const formSubmit = document.createElement('input');
     formSubmit.setAttribute('type', 'submit');
     formSubmit.setAttribute('value', 'Add');
+    formSubmit.setAttribute('id', 'addBtn');
 
     const formCancel = document.createElement('input');
     formCancel.setAttribute('type', 'button');
