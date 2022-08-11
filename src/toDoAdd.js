@@ -50,4 +50,4 @@ formSubmitBtn.addEventListener('click', () => {
   console.log(taskName, taskDate, taskPriority);
 });
 
-export { taskItemsDiv };
+export default taskItemsDiv;

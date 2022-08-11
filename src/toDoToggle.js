@@ -4,7 +4,7 @@ import { formDiv, formCancelBtn } from './toDoForm';
 // need this import for the add button to work
 // import './toDoAdd';
 
-export default function () {
+export default function toDoToggle() {
   const plusIconDiv = document.createElement('div');
   plusIconDiv.setAttribute('id', 'plusIconDiv');
 

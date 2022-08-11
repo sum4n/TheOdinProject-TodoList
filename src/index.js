@@ -1,5 +1,5 @@
 import toDoToggle from './toDoToggle';
-import { taskItemsDiv } from './toDoAdd';
+import taskItemsDiv from './toDoAdd';
 
 const body = document.querySelector('body');
 
