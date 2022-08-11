@@ -41,18 +41,18 @@ priorityHigh.textContent = "High";
 
 inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
 
-const formSubmit = document.createElement('input');
-formSubmit.setAttribute('type', 'button');
-formSubmit.setAttribute('value', 'Add');
-formSubmit.setAttribute('id', 'addBtn');
+const formSubmitBtn = document.createElement('input');
+formSubmitBtn.setAttribute('type', 'button');
+formSubmitBtn.setAttribute('value', 'Add');
+formSubmitBtn.setAttribute('id', 'addBtn');
 
-const formCancel = document.createElement('input');
-formCancel.setAttribute('type', 'button');
-formCancel.setAttribute('value', 'Cancel');
-formCancel.setAttribute('id', 'cancelBtn');
+const formCancelBtn = document.createElement('input');
+formCancelBtn.setAttribute('type', 'button');
+formCancelBtn.setAttribute('value', 'Cancel');
+formCancelBtn.setAttribute('id', 'cancelBtn');
 
-secFormDiv.append(inputPriority, formSubmit, formCancel);
+secFormDiv.append(inputPriority, formSubmitBtn, formCancelBtn);
 
 formDiv.append(firstFormDiv, secFormDiv);
 
-export {formDiv, formCancel, formSubmit};
+export {formDiv, formCancelBtn, formSubmitBtn, inputTitle};
