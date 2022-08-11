@@ -1,7 +1,8 @@
 import {
-  formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv,
+  formSubmitBtn, inputTitle, inputDate, inputPriority,
 } from './toDoForm';
 
+const taskItemsDiv = document.createElement('div');
 class Task {
   constructor(taskName, taskDate, taskPriority) {
     this.taskName = taskName;
@@ -29,9 +30,17 @@ class Task {
 
 formSubmitBtn.addEventListener('click', () => {
   const taskName = inputTitle.value;
-  const taskDate = inputDate.value;
+  let taskDate = inputDate.value;
   const priorityId = inputPriority.id;
-  const taskPriority = document.getElementById(priorityId).value;
+  let taskPriority = document.getElementById(priorityId).value;
+
+  if (!taskDate) {
+    taskDate = 'No due date';
+  }
+
+  if (!taskPriority) {
+    taskPriority = 'None';
+  }
 
   if (taskName) {
     const addTask = new Task(taskName, taskDate, taskPriority);
@@ -40,3 +49,5 @@ formSubmitBtn.addEventListener('click', () => {
 
   console.log(taskName, taskDate, taskPriority);
 });
+
+export { taskItemsDiv };

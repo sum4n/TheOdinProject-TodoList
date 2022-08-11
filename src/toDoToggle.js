@@ -1,8 +1,8 @@
 import plusIconImg from './images/plus.png';
 import './toDoToggle.css';
-import { formDiv, formCancelBtn, taskItemsDiv } from './toDoForm';
+import { formDiv, formCancelBtn } from './toDoForm';
 // need this import for the add button to work
-import './toDoAdd';
+// import './toDoAdd';
 
 export default function () {
   const plusIconDiv = document.createElement('div');
@@ -25,8 +25,6 @@ export default function () {
     plusIconDiv.removeChild(formDiv);
     plusIconDiv.appendChild(plusIcon);
   });
-
-  plusIconDiv.appendChild(taskItemsDiv);
 
   return plusIconDiv;
 }
