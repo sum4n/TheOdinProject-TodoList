@@ -1,27 +1,16 @@
-import {formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv } from "./toDoForm";
-
-formSubmitBtn.addEventListener('click', () => {
-  let taskName = inputTitle.value;
-  let taskDate = inputDate.value;
-  let priorityId = inputPriority.id;
-  let taskPriority = document.getElementById(priorityId).value;
-
-  if (taskName) {
-    let addTask = new Task(taskName, taskDate, taskPriority);
-    addTask.addToDom();
-  }
-  
-  console.log(taskName, taskDate, taskPriority);
-})
+import {
+  formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv,
+} from './toDoForm';
 
 class Task {
-  constructor (taskName, taskDate, taskPriority) {
+  constructor(taskName, taskDate, taskPriority) {
     this.taskName = taskName;
     this.taskDate = taskDate;
     this.taskPriority = taskPriority;
   }
+
   addToDom() {
-    const taskDiv = document.createElement('div')
+    const taskDiv = document.createElement('div');
 
     const taskTitle = document.createElement('p');
     taskTitle.textContent = this.taskName;
@@ -37,3 +26,17 @@ class Task {
     taskItemsDiv.append(taskDiv);
   }
 }
+
+formSubmitBtn.addEventListener('click', () => {
+  const taskName = inputTitle.value;
+  const taskDate = inputDate.value;
+  const priorityId = inputPriority.id;
+  const taskPriority = document.getElementById(priorityId).value;
+
+  if (taskName) {
+    const addTask = new Task(taskName, taskDate, taskPriority);
+    addTask.addToDom();
+  }
+
+  console.log(taskName, taskDate, taskPriority);
+});

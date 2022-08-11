@@ -7,12 +7,12 @@ formDiv.setAttribute('id', 'qwert');
 const firstFormDiv = document.createElement('div');
 
 const inputTitle = document.createElement('input');
-inputTitle.setAttribute("type", "text");
-inputTitle.setAttribute("placeholder", "name");
+inputTitle.setAttribute('type', 'text');
+inputTitle.setAttribute('placeholder', 'name');
 inputTitle.setAttribute('id', 'title');
 
 const inputDate = document.createElement('input');
-inputDate.setAttribute("type", "date");
+inputDate.setAttribute('type', 'date');
 inputDate.setAttribute('id', 'taskDate');
 
 firstFormDiv.append(inputTitle, inputDate);
@@ -26,19 +26,19 @@ inputPriority.setAttribute('id', 'priority');
 
 const prioritySet = document.createElement('option');
 prioritySet.setAttribute('value', '');
-prioritySet.textContent = "Set Priority";
+prioritySet.textContent = 'Set Priority';
 
 const priorityLow = document.createElement('option');
 priorityLow.setAttribute('value', 'low');
-priorityLow.textContent = "Low";
+priorityLow.textContent = 'Low';
 
 const priorityMedium = document.createElement('option');
 priorityMedium.setAttribute('value', 'medium');
-priorityMedium.textContent = "Medium";
+priorityMedium.textContent = 'Medium';
 
 const priorityHigh = document.createElement('option');
 priorityHigh.setAttribute('value', 'high');
-priorityHigh.textContent = "High";
+priorityHigh.textContent = 'High';
 
 inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
 
@@ -56,4 +56,6 @@ secFormDiv.append(inputPriority, formSubmitBtn, formCancelBtn);
 
 formDiv.append(firstFormDiv, secFormDiv);
 
-export {formDiv, formCancelBtn, formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv};
+export {
+  formDiv, formCancelBtn, formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv,
+};
