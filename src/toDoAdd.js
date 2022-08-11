@@ -20,12 +20,18 @@ class Task {
     taskDateP.textContent = this.taskDate;
 
     const taskPriP = document.createElement('p');
-    taskPriP.textContent = this.taskPriority;
+    taskPriP.textContent = `Priority: ${this.taskPriority}`;
 
     taskDiv.append(taskTitle, taskDateP, taskPriP);
 
     taskItemsDiv.append(taskDiv);
   }
+}
+
+function resetForm() {
+  inputTitle.value = '';
+  inputDate.value = '';
+  document.getElementById('priority').value = '';
 }
 
 formSubmitBtn.addEventListener('click', () => {
@@ -45,6 +51,7 @@ formSubmitBtn.addEventListener('click', () => {
   if (taskName) {
     const addTask = new Task(taskName, taskDate, taskPriority);
     addTask.addToDom();
+    resetForm();
   }
 
   console.log(taskName, taskDate, taskPriority);
