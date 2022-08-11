@@ -1,3 +1,4 @@
+const taskItemsDiv = document.createElement('div');
 
 const formDiv = document.createElement('form');
 formDiv.setAttribute('id', 'qwert');
@@ -55,4 +56,4 @@ secFormDiv.append(inputPriority, formSubmitBtn, formCancelBtn);
 
 formDiv.append(firstFormDiv, secFormDiv);
 
-export {formDiv, formCancelBtn, formSubmitBtn, inputTitle};
+export {formDiv, formCancelBtn, formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv};
