@@ -1,6 +1,7 @@
 import {
-  formSubmitBtn, inputTitle, inputDate, inputPriority,
+  formDiv, formSubmitBtn, inputTitle, inputDate, inputPriority,
 } from './toDoForm';
+import { plusIconDiv, plusIcon } from './toDoToggle';
 
 const taskItemsDiv = document.createElement('div');
 class Task {
@@ -34,6 +35,11 @@ function resetForm() {
   document.getElementById('priority').value = '';
 }
 
+function showAddIcon() {
+  plusIconDiv.removeChild(formDiv);
+  plusIconDiv.appendChild(plusIcon);
+}
+
 formSubmitBtn.addEventListener('click', () => {
   const taskName = inputTitle.value;
   let taskDate = inputDate.value;
@@ -52,6 +58,7 @@ formSubmitBtn.addEventListener('click', () => {
     const addTask = new Task(taskName, taskDate, taskPriority);
     addTask.addToDom();
     resetForm();
+    showAddIcon();
   }
 
   console.log(taskName, taskDate, taskPriority);
