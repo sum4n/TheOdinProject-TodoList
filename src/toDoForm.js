@@ -78,4 +78,5 @@ export {
   inputDate,
   inputPriority,
   taskItemsDiv,
+  dateToday,
 };

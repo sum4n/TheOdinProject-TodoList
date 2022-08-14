@@ -4,6 +4,7 @@ import {
   inputTitle,
   inputDate,
   inputPriority,
+  dateToday,
 } from './toDoForm';
 import { plusIconDiv, plusIcon } from './toDoToggle';
 
@@ -35,7 +36,7 @@ class Task {
 
 function resetForm() {
   inputTitle.value = '';
-  inputDate.value = '';
+  inputDate.value = dateToday;
   document.getElementById('priority').value = '';
 }
 
