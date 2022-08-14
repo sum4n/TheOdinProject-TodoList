@@ -49,7 +49,7 @@ priorityHigh.textContent = 'High';
 inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
 
 const formSubmitBtn = document.createElement('input');
-formSubmitBtn.setAttribute('type', 'button');
+formSubmitBtn.setAttribute('type', 'submit');
 formSubmitBtn.setAttribute('value', 'Add');
 formSubmitBtn.setAttribute('id', 'addBtn');
 

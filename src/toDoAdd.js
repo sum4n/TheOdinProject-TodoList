@@ -45,7 +45,7 @@ function showAddIcon() {
   plusIconDiv.appendChild(plusIcon);
 }
 
-formSubmitBtn.addEventListener('click', () => {
+function addToDo() {
   const taskName = inputTitle.value;
   let taskDate = inputDate.value;
   const priorityId = inputPriority.id;
@@ -68,6 +68,16 @@ formSubmitBtn.addEventListener('click', () => {
 
   // eslint-disable-next-line no-console
   console.log(taskName, taskDate, taskPriority);
+}
+
+formDiv.addEventListener('submit', (e) => {
+  e.preventDefault();
+  addToDo();
+});
+
+formSubmitBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  addToDo();
 });
 
 export default taskItemsDiv;
