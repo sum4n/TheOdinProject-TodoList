@@ -1,3 +1,5 @@
+import './toDoForm.css';
+
 const taskItemsDiv = document.createElement('div');
 
 const formDiv = document.createElement('form');
@@ -5,20 +7,24 @@ formDiv.setAttribute('id', 'qwert');
 
 // first div
 const firstFormDiv = document.createElement('div');
+firstFormDiv.setAttribute('id', 'firstFormDiv');
 
 const inputTitle = document.createElement('input');
 inputTitle.setAttribute('type', 'text');
-inputTitle.setAttribute('placeholder', 'name');
+inputTitle.setAttribute('placeholder', 'Task Name');
 inputTitle.setAttribute('id', 'title');
 
 const inputDate = document.createElement('input');
 inputDate.setAttribute('type', 'date');
 inputDate.setAttribute('id', 'taskDate');
 
-firstFormDiv.append(inputTitle, inputDate);
+const dateToday = new Date().toJSON().slice(0, 10);
+inputDate.setAttribute('value', dateToday);
+
 // first div  ends
 // second form div
 const secFormDiv = document.createElement('div');
+secFormDiv.setAttribute('id', 'secFormDiv');
 
 const inputPriority = document.createElement('select');
 inputPriority.setAttribute('name', 'Priority');
@@ -52,10 +58,24 @@ formCancelBtn.setAttribute('type', 'button');
 formCancelBtn.setAttribute('value', 'Cancel');
 formCancelBtn.setAttribute('id', 'cancelBtn');
 
-secFormDiv.append(inputPriority, formSubmitBtn, formCancelBtn);
+secFormDiv.append(formSubmitBtn, formCancelBtn);
+
+firstFormDiv.append(
+  inputTitle,
+  inputDate,
+  inputPriority
+  // formSubmitBtn,
+  // formCancelBtn
+);
 
 formDiv.append(firstFormDiv, secFormDiv);
 
 export {
-  formDiv, formCancelBtn, formSubmitBtn, inputTitle, inputDate, inputPriority, taskItemsDiv,
+  formDiv,
+  formCancelBtn,
+  formSubmitBtn,
+  inputTitle,
+  inputDate,
+  inputPriority,
+  taskItemsDiv,
 };

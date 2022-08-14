@@ -1,5 +1,9 @@
 import {
-  formDiv, formSubmitBtn, inputTitle, inputDate, inputPriority,
+  formDiv,
+  formSubmitBtn,
+  inputTitle,
+  inputDate,
+  inputPriority,
 } from './toDoForm';
 import { plusIconDiv, plusIcon } from './toDoToggle';
 
@@ -61,6 +65,7 @@ formSubmitBtn.addEventListener('click', () => {
     showAddIcon();
   }
 
+  // eslint-disable-next-line no-console
   console.log(taskName, taskDate, taskPriority);
 });
 

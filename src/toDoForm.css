@@ -1,0 +1,70 @@
+#qwert {
+    /* background-color: bisque; */
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    /* gap: 18px; */
+    /* text-align: center; */
+    /* align-items: center; */
+    /* flex-direction: column; */
+}
+
+#firstFormDiv {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    /* border: 1px solid black; */
+    height: 80px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#title {
+    height: 40px;
+    width: 300px;
+    border: none;
+    margin-left: 10px;
+    /* margin-right: 8px; */
+    height: 40px;
+    border-radius: 4px;
+    /* font-size: 24px; */
+}
+
+#taskDate {
+    height: 40px;
+    border-radius: 4px;
+    border: none;
+    /* font-size: 24px; */
+}
+
+#priority {
+    height: 40px;
+    border: none;
+    border-radius: 4px;
+}
+
+#secFormDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+#addBtn {
+    height: 40px;
+    width: 80px;
+    background-color: greenyellow;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+#cancelBtn {
+    height: 40px;
+    width: 80px;
+    margin-right: 10px;
+    background-color: red;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+}

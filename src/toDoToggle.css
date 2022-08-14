@@ -1,9 +1,12 @@
 img {
-    height: 60px;
-    width: 60px;
+    height: 80px;
+    width: 80px;
 }
 
-img:hover {
-    height: 70px;
-    width: 70px;
+#plusIconDiv {
+    height: 80px;
+    border: 1px solid black;
+    text-align: center;
+    background-color: rgb(57, 111, 111);
 }
+

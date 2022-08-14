@@ -1,5 +1,6 @@
 import { plusIconDiv } from './toDoToggle';
 import taskItemsDiv from './toDoAdd';
+import './index.css';
 
 const body = document.querySelector('body');
 
