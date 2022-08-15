@@ -1,6 +1,7 @@
 import './toDoForm.css';
 
 const taskItemsDiv = document.createElement('div');
+taskItemsDiv.classList.add('taskItemsDiv');
 
 const formDiv = document.createElement('form');
 formDiv.setAttribute('id', 'qwert');
