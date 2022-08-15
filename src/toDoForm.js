@@ -25,23 +25,19 @@ const inputPriority = document.createElement('select');
 inputPriority.setAttribute('name', 'Priority');
 inputPriority.setAttribute('id', 'priority');
 
-const prioritySet = document.createElement('option');
-prioritySet.setAttribute('value', '');
-prioritySet.textContent = 'Set Priority';
-
 const priorityLow = document.createElement('option');
-priorityLow.setAttribute('value', 'low');
+priorityLow.setAttribute('value', 'Low');
 priorityLow.textContent = 'Low';
 
 const priorityMedium = document.createElement('option');
-priorityMedium.setAttribute('value', 'medium');
+priorityMedium.setAttribute('value', 'Medium');
 priorityMedium.textContent = 'Medium';
 
 const priorityHigh = document.createElement('option');
-priorityHigh.setAttribute('value', 'high');
+priorityHigh.setAttribute('value', 'High');
 priorityHigh.textContent = 'High';
 
-inputPriority.append(prioritySet, priorityLow, priorityMedium, priorityHigh);
+inputPriority.append(priorityLow, priorityMedium, priorityHigh);
 
 const formSubmitBtn = document.createElement('input');
 formSubmitBtn.setAttribute('type', 'submit');

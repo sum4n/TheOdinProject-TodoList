@@ -54,7 +54,7 @@ class Task {
 function resetForm() {
   inputTitle.value = '';
   inputDate.value = dateToday;
-  document.getElementById('priority').value = '';
+  document.getElementById('priority').value = 'Low';
 }
 
 function showAddIcon() {
@@ -66,15 +66,15 @@ function addToDo() {
   const taskName = inputTitle.value;
   let taskDate = inputDate.value;
   const priorityId = inputPriority.id;
-  let taskPriority = document.getElementById(priorityId).value;
+  const taskPriority = document.getElementById(priorityId).value;
 
   if (!taskDate) {
     taskDate = 'No due date';
   }
 
-  if (!taskPriority) {
-    taskPriority = 'None';
-  }
+  // if (!taskPriority) {
+  //   taskPriority = 'None';
+  // }
 
   if (taskName) {
     const addTask = new Task(taskName, taskDate, taskPriority);
