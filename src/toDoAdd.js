@@ -22,7 +22,7 @@ class Task {
     taskDiv.classList.add('taskDiv');
 
     const taskDone = document.createElement('input');
-    taskDone.setAttribute('type', 'radio');
+    taskDone.setAttribute('type', 'checkbox');
     taskDone.setAttribute('value', 'done');
     taskDone.setAttribute('id', 'taskDone');
 
