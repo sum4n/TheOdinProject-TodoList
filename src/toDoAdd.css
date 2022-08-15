@@ -26,15 +26,6 @@
     text-align: center;
 }
 
-.buttonDiv {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 20px;
-    flex-grow: 1;
-    border: 1px solid yellow;
-}
-
 #taskEdit {
     height: 40px;
     width: 80px;

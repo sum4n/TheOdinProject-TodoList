@@ -33,9 +33,6 @@ class Task {
     taskPriP.textContent = this.taskPriority;
     taskPriP.setAttribute('id', 'taskPriP');
 
-    const buttonDiv = document.createElement('div');
-    buttonDiv.classList.add('buttonDiv');
-
     const taskDel = document.createElement('input');
     taskDel.setAttribute('type', 'button');
     taskDel.setAttribute('value', 'Delete');
@@ -45,8 +42,6 @@ class Task {
     taskEdit.setAttribute('type', 'button');
     taskEdit.setAttribute('value', 'Edit');
     taskEdit.setAttribute('id', 'taskEdit');
-
-    // buttonDiv.append(taskEdit, taskDel);
 
     taskDiv.append(taskTitle, taskDateP, taskPriP, taskEdit, taskDel);
 
