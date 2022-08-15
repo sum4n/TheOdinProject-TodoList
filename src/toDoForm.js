@@ -21,11 +21,6 @@ inputDate.setAttribute('id', 'taskDate');
 const dateToday = new Date().toJSON().slice(0, 10);
 inputDate.setAttribute('value', dateToday);
 
-// first div  ends
-// second form div
-const secFormDiv = document.createElement('div');
-secFormDiv.setAttribute('id', 'secFormDiv');
-
 const inputPriority = document.createElement('select');
 inputPriority.setAttribute('name', 'Priority');
 inputPriority.setAttribute('id', 'priority');
@@ -58,17 +53,15 @@ formCancelBtn.setAttribute('type', 'button');
 formCancelBtn.setAttribute('value', 'Cancel');
 formCancelBtn.setAttribute('id', 'cancelBtn');
 
-secFormDiv.append(formSubmitBtn, formCancelBtn);
-
 firstFormDiv.append(
   inputTitle,
   inputDate,
-  inputPriority
-  // formSubmitBtn,
-  // formCancelBtn
+  inputPriority,
+  formSubmitBtn,
+  formCancelBtn
 );
 
-formDiv.append(firstFormDiv, secFormDiv);
+formDiv.append(firstFormDiv);
 
 export {
   formDiv,
