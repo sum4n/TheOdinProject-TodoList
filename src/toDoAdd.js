@@ -21,6 +21,11 @@ class Task {
     const taskDiv = document.createElement('div');
     taskDiv.classList.add('taskDiv');
 
+    const taskDone = document.createElement('input');
+    taskDone.setAttribute('type', 'radio');
+    taskDone.setAttribute('value', 'done');
+    taskDone.setAttribute('id', 'taskDone');
+
     const taskTitle = document.createElement('p');
     taskTitle.textContent = this.taskName;
     taskTitle.setAttribute('id', 'taskTitle');
@@ -45,7 +50,7 @@ class Task {
     taskEdit.setAttribute('id', 'taskEdit');
     taskEdit.classList.add('buttons');
 
-    taskDiv.append(taskTitle, taskDateP, taskPriP, taskEdit, taskDel);
+    taskDiv.append(taskDone, taskTitle, taskDateP, taskPriP, taskEdit, taskDel);
 
     taskItemsDiv.append(taskDiv);
   }

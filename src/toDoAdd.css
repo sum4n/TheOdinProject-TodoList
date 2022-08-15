@@ -7,8 +7,12 @@
     margin-top: 8px;
 }
 
+#taskDone {
+    margin: 0px 0px 0px 4px;
+}
+
 #taskTitle {
-    margin-left: 15px;
+    /* margin-left: 15px; */
     /* max-width: 600px; */
     /* border: 1px solid white; */
     flex-grow: 4;
