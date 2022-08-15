@@ -37,11 +37,13 @@ class Task {
     taskDel.setAttribute('type', 'button');
     taskDel.setAttribute('value', 'Delete');
     taskDel.setAttribute('id', 'taskDel');
+    taskDel.classList.add('buttons');
 
     const taskEdit = document.createElement('input');
     taskEdit.setAttribute('type', 'button');
     taskEdit.setAttribute('value', 'Edit');
     taskEdit.setAttribute('id', 'taskEdit');
+    taskEdit.classList.add('buttons');
 
     taskDiv.append(taskTitle, taskDateP, taskPriP, taskEdit, taskDel);
 
