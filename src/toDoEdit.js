@@ -11,6 +11,11 @@ document.addEventListener('click', (e) => {
       e.target.nextSibling.style.setProperty('text-decoration', 'none');
     }
   }
+
+  if (e.target.id === 'taskDel') {
+    // console.log(e.target.parentNode);
+    e.target.parentNode.remove();
+  }
 });
 
 // export default taskCheck;
