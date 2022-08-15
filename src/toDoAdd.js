@@ -5,10 +5,11 @@ import {
   inputDate,
   inputPriority,
   dateToday,
+  taskItemsDiv,
 } from './toDoForm';
 import { plusIconDiv, plusIcon } from './toDoToggle';
+import './toDoAdd.css';
 
-const taskItemsDiv = document.createElement('div');
 class Task {
   constructor(taskName, taskDate, taskPriority) {
     this.taskName = taskName;
@@ -18,17 +19,36 @@ class Task {
 
   addToDom() {
     const taskDiv = document.createElement('div');
+    taskDiv.classList.add('taskDiv');
 
     const taskTitle = document.createElement('p');
     taskTitle.textContent = this.taskName;
+    taskTitle.setAttribute('id', 'taskTitle');
 
     const taskDateP = document.createElement('p');
     taskDateP.textContent = this.taskDate;
+    taskDateP.setAttribute('id', 'taskDateP');
 
     const taskPriP = document.createElement('p');
-    taskPriP.textContent = `Priority: ${this.taskPriority}`;
+    taskPriP.textContent = this.taskPriority;
+    taskPriP.setAttribute('id', 'taskPriP');
 
-    taskDiv.append(taskTitle, taskDateP, taskPriP);
+    const buttonDiv = document.createElement('div');
+    buttonDiv.classList.add('buttonDiv');
+
+    const taskDel = document.createElement('input');
+    taskDel.setAttribute('type', 'button');
+    taskDel.setAttribute('value', 'Delete');
+    taskDel.setAttribute('id', 'taskDel');
+
+    const taskEdit = document.createElement('input');
+    taskEdit.setAttribute('type', 'button');
+    taskEdit.setAttribute('value', 'Edit');
+    taskEdit.setAttribute('id', 'taskEdit');
+
+    // buttonDiv.append(taskEdit, taskDel);
+
+    taskDiv.append(taskTitle, taskDateP, taskPriP, taskEdit, taskDel);
 
     taskItemsDiv.append(taskDiv);
   }
@@ -79,5 +99,9 @@ formSubmitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   addToDo();
 });
+
+// dummy data
+const myTask = new Task("Hello! I'm a task.", dateToday, 'High');
+myTask.addToDom();
 
 export default taskItemsDiv;

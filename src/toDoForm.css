@@ -3,31 +3,27 @@
     height: 80px;
     display: flex;
     justify-content: space-between;
-    /* gap: 18px; */
-    /* text-align: center; */
-    /* align-items: center; */
-    /* flex-direction: column; */
 }
 
 #firstFormDiv {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    /* border: 1px solid black; */
+    border: 2px solid yellow;
     height: 80px;
     align-items: center;
     flex-wrap: wrap;
+    flex-grow: 8;
 }
 
 #title {
     height: 40px;
-    width: 300px;
+    /* width: 400px; */
     border: none;
     margin-left: 15px;
-    /* margin-right: 8px; */
-    height: 40px;
     border-radius: 4px;
     /* font-size: 24px; */
+    flex-grow: 4;
 }
 
 #taskDate {
@@ -35,19 +31,23 @@
     border-radius: 4px;
     border: none;
     /* font-size: 24px; */
+    /* flex-grow: 1; */
 }
 
 #priority {
     height: 40px;
     border: none;
     border-radius: 4px;
+    /* flex-grow: 1; */
 }
 
 #secFormDiv {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 20px;
+    flex-grow: 1;
+    border: 1px solid yellow;
 }
 
 #addBtn {

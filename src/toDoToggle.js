@@ -17,8 +17,8 @@ function showForm() {
 
 plusIcon.addEventListener('click', showForm);
 
-plusIconDiv.appendChild(plusIcon);
-// plusIconDiv.appendChild(formDiv);
+// plusIconDiv.appendChild(plusIcon);
+plusIconDiv.appendChild(formDiv);
 
 formCancelBtn.addEventListener('click', () => {
   plusIconDiv.removeChild(formDiv);

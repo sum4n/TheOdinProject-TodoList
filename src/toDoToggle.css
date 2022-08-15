@@ -5,9 +5,9 @@ img {
 
 #plusIconDiv {
     height: 80px;
-    /* border: 1px solid black; */
-    border-radius: 4px;
+    border: 2px solid white;
+    border-radius: 8px;
     text-align: center;
-    background-color: rgb(57, 111, 111);
+    /* background-color: rgb(57, 111, 111); */
 }
 
