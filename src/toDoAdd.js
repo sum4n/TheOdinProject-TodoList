@@ -69,7 +69,8 @@ function showAddIcon() {
 
 function addLocalStorage(name, date, pri) {
   const itemNum = localStorage.length + 1;
-  const obj = { name, date, pri };
+  // Add key to identify task.
+  const obj = { name, date, pri, key: `item${itemNum}` };
   localStorage.setItem(`item${itemNum}`, JSON.stringify(obj));
 }
 
@@ -115,7 +116,7 @@ formSubmitBtn.addEventListener('click', (e) => {
 
 // dummy data
 function addDummyToLocalStorage() {
-  const dObj = { name: 'Task1', date: '2022-08-22', pri: 'High' };
+  const dObj = { name: 'Task1', date: '2022-08-22', pri: 'High', key: 'item1' };
   localStorage.setItem('item1', JSON.stringify(dObj));
 }
 addDummyToLocalStorage();
