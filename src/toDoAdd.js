@@ -67,29 +67,40 @@ function showAddIcon() {
   plusIconDiv.appendChild(plusIcon);
 }
 
+function addLocalStorage(name, date, pri) {
+  const itemNum = localStorage.length + 1;
+  const obj = { name, date, pri };
+  localStorage.setItem(`item${itemNum}`, JSON.stringify(obj));
+}
+
+function getLocalStorage() {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0; i < localStorage.length + 1; i++) {
+    if (localStorage.getItem(`item${i + 1}`)) {
+      const task = JSON.parse(localStorage.getItem(`item${i + 1}`));
+      // console.log(task);
+
+      const toDoTask = new Task(task.name, task.date, task.pri);
+      toDoTask.addToDom();
+    }
+  }
+}
+
 function addToDo() {
   const taskName = inputTitle.value;
-  let taskDate = inputDate.value;
+  const taskDate = inputDate.value;
   const priorityId = inputPriority.id;
   const taskPriority = document.getElementById(priorityId).value;
-
-  if (!taskDate) {
-    taskDate = 'No due date';
-  }
-
-  // if (!taskPriority) {
-  //   taskPriority = 'None';
-  // }
 
   if (taskName) {
     const addTask = new Task(taskName, taskDate, taskPriority);
     addTask.addToDom();
+    addLocalStorage(taskName, taskDate, taskPriority);
     resetForm();
     showAddIcon();
+    // console.log(localStorage);
   }
-
-  // eslint-disable-next-line no-console
-  console.log(taskName, taskDate, taskPriority);
+  // console.log(taskName, taskDate, taskPriority);
 }
 
 formDiv.addEventListener('submit', (e) => {
@@ -103,7 +114,13 @@ formSubmitBtn.addEventListener('click', (e) => {
 });
 
 // dummy data
-const myTask = new Task("Hello! I'm a task.", dateToday, 'High');
-myTask.addToDom();
+function addDummyToLocalStorage() {
+  const dObj = { name: 'Task1', date: '2022-08-22', pri: 'High' };
+  localStorage.setItem('item1', JSON.stringify(dObj));
+}
+addDummyToLocalStorage();
+
+// Get tasks from localStorage and add to dom.
+getLocalStorage();
 
 export default taskItemsDiv;
