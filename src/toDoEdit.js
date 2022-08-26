@@ -15,8 +15,9 @@ document.addEventListener('click', (e) => {
   }
 
   if (e.target.id === 'taskDel') {
-    // console.log(e.target.parentNode);
-    e.target.parentNode.remove();
+    console.log(e.target.parentNode);
+    console.log(e.target);
+    // e.target.parentNode.remove();
   }
 
   if (e.target.id === 'taskEdit' && e.target.value === 'Edit') {

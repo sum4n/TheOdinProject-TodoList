@@ -11,15 +11,17 @@ import { plusIconDiv, plusIcon } from './toDoToggle';
 import './toDoAdd.css';
 
 class Task {
-  constructor(taskName, taskDate, taskPriority) {
+  constructor(taskName, taskDate, taskPriority, keyName) {
     this.taskName = taskName;
     this.taskDate = taskDate;
     this.taskPriority = taskPriority;
+    this.keyName = keyName;
   }
 
   addToDom() {
     const taskDiv = document.createElement('div');
     taskDiv.classList.add('taskDiv');
+    taskDiv.setAttribute('id', this.keyName);
 
     const taskDone = document.createElement('input');
     taskDone.setAttribute('type', 'checkbox');
@@ -81,7 +83,7 @@ function getLocalStorage() {
       const task = JSON.parse(localStorage.getItem(`item${i + 1}`));
       // console.log(task);
 
-      const toDoTask = new Task(task.name, task.date, task.pri);
+      const toDoTask = new Task(task.name, task.date, task.pri, task.key);
       toDoTask.addToDom();
     }
   }
@@ -92,9 +94,11 @@ function addToDo() {
   const taskDate = inputDate.value;
   const priorityId = inputPriority.id;
   const taskPriority = document.getElementById(priorityId).value;
+  const key = localStorage.length + 1;
+  const keyName = `item${key}`;
 
   if (taskName) {
-    const addTask = new Task(taskName, taskDate, taskPriority);
+    const addTask = new Task(taskName, taskDate, taskPriority, keyName);
     addTask.addToDom();
     addLocalStorage(taskName, taskDate, taskPriority);
     resetForm();
