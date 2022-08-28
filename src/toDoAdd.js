@@ -7,7 +7,7 @@ import {
   dateToday,
   taskItemsDiv,
 } from './toDoForm';
-import { plusIconDiv, plusIcon } from './toDoToggle';
+// import { plusIconDiv, plusIcon } from './toDoToggle';
 import './toDoAdd.css';
 
 class Task {
@@ -64,10 +64,10 @@ function resetForm() {
   document.getElementById('priority').value = 'Low';
 }
 
-function showAddIcon() {
-  plusIconDiv.removeChild(formDiv);
-  plusIconDiv.appendChild(plusIcon);
-}
+// function showAddIcon() {
+//   plusIconDiv.removeChild(formDiv);
+//   plusIconDiv.appendChild(plusIcon);
+// }
 
 function addLocalStorage(name, date, pri) {
   // Add key to identify task. Timestamp as key to sort tasks.
@@ -103,7 +103,7 @@ function addToDo() {
     addTask.addToDom();
     addLocalStorage(taskName, taskDate, taskPriority);
     resetForm();
-    showAddIcon();
+    // showAddIcon();
     // console.log(localStorage);
   }
   // console.log(taskName, taskDate, taskPriority);
@@ -117,19 +117,20 @@ formDiv.addEventListener('submit', (e) => {
 formSubmitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   addToDo();
+  inputTitle.focus();
 });
 
-// dummy data
-function addDummyToLocalStorage() {
-  const dObj = {
-    name: 'Task1',
-    date: '2022-08-22',
-    pri: 'High',
-    key: '00',
-  };
-  localStorage.setItem('00', JSON.stringify(dObj));
-}
-addDummyToLocalStorage();
+// // dummy data
+// function addDummyToLocalStorage() {
+//   const dObj = {
+//     name: 'Dummy Task',
+//     date: '2022-08-22',
+//     pri: 'High',
+//     key: '00',
+//   };
+//   localStorage.setItem('00', JSON.stringify(dObj));
+// }
+// addDummyToLocalStorage();
 
 // Get tasks from localStorage and add to dom.
 // getLocalStorage();
