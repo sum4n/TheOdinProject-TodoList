@@ -15,15 +15,15 @@ document.addEventListener('click', (e) => {
   }
 
   if (e.target.id === 'taskDel') {
-    console.log(e.target.parentNode.id);
-    console.log(e.target);
+    // console.log(e.target.parentNode.id);
+    // console.log(e.target);
     e.target.parentNode.remove();
     localStorage.removeItem(e.target.parentNode.id);
   }
 
   if (e.target.id === 'taskEdit' && e.target.value === 'Edit') {
     e.target.value = 'Save';
-    console.log(e.target.previousSibling.textContent);
+    // console.log(e.target.previousSibling.textContent);
 
     const editTask = document.createElement('input');
     editTask.setAttribute('type', 'text');

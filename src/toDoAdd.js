@@ -70,23 +70,24 @@ function showAddIcon() {
 }
 
 function addLocalStorage(name, date, pri) {
-  const itemNum = localStorage.length + 1;
-  // Add key to identify task.
-  const obj = { name, date, pri, key: `item${itemNum}` };
-  localStorage.setItem(`item${itemNum}`, JSON.stringify(obj));
+  // Add key to identify task. Timestamp as key to sort tasks.
+  let keyName = Date.now();
+
+  const obj = { name, date, pri, key: keyName };
+  localStorage.setItem(keyName, JSON.stringify(obj));
+  keyName += 1;
 }
 
 function getLocalStorage() {
-  // eslint-disable-next-line no-plusplus
-  for (let i = 0; i < localStorage.length + 1; i++) {
-    if (localStorage.getItem(`item${i + 1}`)) {
-      const task = JSON.parse(localStorage.getItem(`item${i + 1}`));
-      // console.log(task);
+  // sort the keys, because object has no order. Then loop.
+  const keys = Object.keys(localStorage).sort();
+  keys.forEach((key) => {
+    const task = JSON.parse(localStorage.getItem(key));
+    // console.log(task);
 
-      const toDoTask = new Task(task.name, task.date, task.pri, task.key);
-      toDoTask.addToDom();
-    }
-  }
+    const toDoTask = new Task(task.name, task.date, task.pri, task.key);
+    toDoTask.addToDom();
+  });
 }
 
 function addToDo() {
@@ -120,12 +121,20 @@ formSubmitBtn.addEventListener('click', (e) => {
 
 // dummy data
 function addDummyToLocalStorage() {
-  const dObj = { name: 'Task1', date: '2022-08-22', pri: 'High', key: 'item1' };
-  localStorage.setItem('item1', JSON.stringify(dObj));
+  const dObj = {
+    name: 'Task1',
+    date: '2022-08-22',
+    pri: 'High',
+    key: '00',
+  };
+  localStorage.setItem('00', JSON.stringify(dObj));
 }
 addDummyToLocalStorage();
 
 // Get tasks from localStorage and add to dom.
-getLocalStorage();
+// getLocalStorage();
+if (localStorage.length > 0) {
+  getLocalStorage();
+}
 
 export default taskItemsDiv;
