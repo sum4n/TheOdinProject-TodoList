@@ -69,13 +69,9 @@ function resetForm() {
 //   plusIconDiv.appendChild(plusIcon);
 // }
 
-function addLocalStorage(name, date, pri) {
-  // Add key to identify task. Timestamp as key to sort tasks.
-  let keyName = Date.now();
-
-  const obj = { name, date, pri, key: keyName };
+function addLocalStorage(name, date, pri, keyName) {
+  const obj = { name, date, pri, keyName };
   localStorage.setItem(keyName, JSON.stringify(obj));
-  keyName += 1;
 }
 
 function getLocalStorage() {
@@ -84,8 +80,7 @@ function getLocalStorage() {
   keys.forEach((key) => {
     const task = JSON.parse(localStorage.getItem(key));
     // console.log(task);
-
-    const toDoTask = new Task(task.name, task.date, task.pri, task.key);
+    const toDoTask = new Task(task.name, task.date, task.pri, task.keyName);
     toDoTask.addToDom();
   });
 }
@@ -95,13 +90,14 @@ function addToDo() {
   const taskDate = inputDate.value;
   const priorityId = inputPriority.id;
   const taskPriority = document.getElementById(priorityId).value;
-  const key = localStorage.length + 1;
-  const keyName = `item${key}`;
+  // Add key to identify task. Timestamp as key to sort tasks.
+  // keyName becomes id of the task div.
+  const keyName = Date.now();
 
   if (taskName) {
     const addTask = new Task(taskName, taskDate, taskPriority, keyName);
     addTask.addToDom();
-    addLocalStorage(taskName, taskDate, taskPriority);
+    addLocalStorage(taskName, taskDate, taskPriority, keyName);
     resetForm();
     // showAddIcon();
     // console.log(localStorage);
