@@ -33,6 +33,7 @@ document.addEventListener('click', (e) => {
     e.target.previousSibling.previousSibling.previousSibling.replaceWith(
       editTask
     );
+    editTask.focus();
 
     const editDate = document.createElement('input');
     editDate.setAttribute('type', 'date');
@@ -64,6 +65,18 @@ document.addEventListener('click', (e) => {
     editPrio.value = e.target.previousSibling.textContent;
 
     e.target.previousSibling.replaceWith(editPrio);
+  } else if (e.target.id === 'taskEdit' && e.target.value === 'Save') {
+    // console.log(e.target.value);
+    const name = e.target.previousSibling.previousSibling.previousSibling.value;
+    const date = e.target.previousSibling.previousSibling.value;
+    const pri = e.target.previousSibling.value;
+    const keyName = e.target.parentNode.id;
+    // console.log(name, date, pri, keyName);
+    const objTask = { name, date, pri, keyName };
+    localStorage.setItem(keyName, JSON.stringify(objTask));
+    // console.log(localStorage);
+    // Reload the page to display change. CHEAT or BRILLIANCE?
+    document.location.reload();
   }
 });
 
