@@ -51,3 +51,8 @@
     margin-right: 15px;
     background-color: red;
 }
+
+#taskCancel {
+    margin-right: 15px;
+    background-color: yellow;
+}

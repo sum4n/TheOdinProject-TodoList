@@ -14,7 +14,7 @@ document.addEventListener('click', (e) => {
     }
   }
 
-  if (e.target.id === 'taskDel') {
+  if (e.target.id === 'taskDel' && e.target.value === 'Delete') {
     // console.log(e.target.parentNode.id);
     // console.log(e.target);
     e.target.parentNode.remove();
@@ -23,6 +23,8 @@ document.addEventListener('click', (e) => {
 
   if (e.target.id === 'taskEdit' && e.target.value === 'Edit') {
     e.target.value = 'Save';
+    e.target.nextSibling.value = 'Cancel';
+    e.target.nextSibling.id = 'taskCancel';
     // console.log(e.target.previousSibling.textContent);
 
     const editTask = document.createElement('input');
@@ -76,6 +78,9 @@ document.addEventListener('click', (e) => {
     localStorage.setItem(keyName, JSON.stringify(objTask));
     // console.log(localStorage);
     // Reload the page to display change. CHEAT or BRILLIANCE?
+    document.location.reload();
+  }
+  if (e.target.id === 'taskCancel' && e.target.value === 'Cancel') {
     document.location.reload();
   }
 });
