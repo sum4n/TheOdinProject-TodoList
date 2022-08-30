@@ -21,6 +21,7 @@ class Task {
   addToDom() {
     const taskDiv = document.createElement('div');
     taskDiv.classList.add('taskDiv');
+    // Associate div with the task's localstorage key.
     taskDiv.setAttribute('id', this.keyName);
 
     const taskDone = document.createElement('input');
