@@ -6,11 +6,32 @@ document.addEventListener('click', (e) => {
   //   If event target has a sibling and
   //   its name is  'taskTitle', act on it.
   if (e.target.nextSibling && e.target.nextSibling.id === 'taskTitle') {
+    const obj = {
+      taskDone: e.target.checked,
+      name: e.target.nextSibling.textContent,
+      date: e.target.nextSibling.nextSibling.textContent,
+      pri: e.target.nextSibling.nextSibling.nextSibling.textContent,
+      keyName: e.target.parentNode.id,
+    };
+
     if (e.target.checked) {
       e.target.nextSibling.style.setProperty('text-decoration', 'line-through');
-      //   console.log(e.target.nextSibling.id);
+      localStorage.setItem(e.target.parentNode.id, JSON.stringify(obj));
+
+      // console.log(e.target.parentNode.id);
+      // console.log(
+      //   e.target.nextSibling.textContent,
+      //   e.target.nextSibling.nextSibling.textContent,
+      //   e.target.nextSibling.nextSibling.nextSibling.textContent
+      // );
+
+      console.log(localStorage.getItem(e.target.parentNode.id));
+      // console.log(e.target.nextSibling.nextSibling.nextSibling.nextSibling);
     } else {
       e.target.nextSibling.style.setProperty('text-decoration', 'none');
+      localStorage.setItem(e.target.parentNode.id, JSON.stringify(obj));
+
+      console.log(localStorage.getItem(e.target.parentNode.id));
     }
   }
 
