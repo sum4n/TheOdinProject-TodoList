@@ -17,6 +17,7 @@ document.addEventListener('click', (e) => {
     if (e.target.checked) {
       e.target.nextSibling.style.setProperty('text-decoration', 'line-through');
       localStorage.setItem(e.target.parentNode.id, JSON.stringify(obj));
+      e.target.nextSibling.nextSibling.nextSibling.nextSibling.disabled = true;
 
       // console.log(e.target.parentNode.id);
       // console.log(
@@ -25,13 +26,14 @@ document.addEventListener('click', (e) => {
       //   e.target.nextSibling.nextSibling.nextSibling.textContent
       // );
 
-      console.log(localStorage.getItem(e.target.parentNode.id));
+      // console.log(localStorage.getItem(e.target.parentNode.id));
       // console.log(e.target.nextSibling.nextSibling.nextSibling.nextSibling);
     } else {
       e.target.nextSibling.style.setProperty('text-decoration', 'none');
       localStorage.setItem(e.target.parentNode.id, JSON.stringify(obj));
+      e.target.nextSibling.nextSibling.nextSibling.nextSibling.disabled = false;
 
-      console.log(localStorage.getItem(e.target.parentNode.id));
+      // console.log(localStorage.getItem(e.target.parentNode.id));
     }
   }
 

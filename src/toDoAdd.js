@@ -27,18 +27,12 @@ class Task {
 
     const taskDone = document.createElement('input');
     taskDone.setAttribute('type', 'checkbox');
-    taskDone.setAttribute('value', 'done');
     taskDone.checked = this.taskDone;
     taskDone.setAttribute('id', 'taskDone');
 
     const taskTitle = document.createElement('p');
     taskTitle.textContent = this.taskName;
     taskTitle.setAttribute('id', 'taskTitle');
-    if (taskDone.checked === true) {
-      taskTitle.style.setProperty('text-decoration', 'line-through');
-      taskDone.checked = true;
-    }
-    console.log(taskDone.checked);
 
     const taskDateP = document.createElement('p');
     taskDateP.textContent = this.taskDate;
@@ -59,6 +53,11 @@ class Task {
     taskEdit.setAttribute('value', 'Edit');
     taskEdit.setAttribute('id', 'taskEdit');
     taskEdit.classList.add('buttons');
+
+    if (taskDone.checked) {
+      taskTitle.style.setProperty('text-decoration', 'line-through');
+      taskEdit.disabled = true;
+    }
 
     taskDiv.append(taskDone, taskTitle, taskDateP, taskPriP, taskEdit, taskDel);
 
