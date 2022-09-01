@@ -11,7 +11,8 @@ import {
 import './toDoAdd.css';
 
 class Task {
-  constructor(taskName, taskDate, taskPriority, keyName) {
+  constructor(taskDone, taskName, taskDate, taskPriority, keyName) {
+    this.taskDone = taskDone;
     this.taskName = taskName;
     this.taskDate = taskDate;
     this.taskPriority = taskPriority;
@@ -27,11 +28,17 @@ class Task {
     const taskDone = document.createElement('input');
     taskDone.setAttribute('type', 'checkbox');
     taskDone.setAttribute('value', 'done');
+    taskDone.checked = this.taskDone;
     taskDone.setAttribute('id', 'taskDone');
 
     const taskTitle = document.createElement('p');
     taskTitle.textContent = this.taskName;
     taskTitle.setAttribute('id', 'taskTitle');
+    if (taskDone.checked === true) {
+      taskTitle.style.setProperty('text-decoration', 'line-through');
+      taskDone.checked = true;
+    }
+    console.log(taskDone.checked);
 
     const taskDateP = document.createElement('p');
     taskDateP.textContent = this.taskDate;
@@ -70,8 +77,8 @@ function resetForm() {
 //   plusIconDiv.appendChild(plusIcon);
 // }
 
-function addLocalStorage(name, date, pri, keyName) {
-  const obj = { name, date, pri, keyName };
+function addLocalStorage(taskDone, name, date, pri, keyName) {
+  const obj = { taskDone, name, date, pri, keyName };
   localStorage.setItem(keyName, JSON.stringify(obj));
 }
 
@@ -81,12 +88,19 @@ function getLocalStorage() {
   keys.forEach((key) => {
     const task = JSON.parse(localStorage.getItem(key));
     // console.log(task);
-    const toDoTask = new Task(task.name, task.date, task.pri, task.keyName);
+    const toDoTask = new Task(
+      task.taskDone,
+      task.name,
+      task.date,
+      task.pri,
+      task.keyName
+    );
     toDoTask.addToDom();
   });
 }
 
 function addToDo() {
+  const taskDone = false;
   const taskName = inputTitle.value;
   const taskDate = inputDate.value;
   const priorityId = inputPriority.id;
@@ -96,9 +110,15 @@ function addToDo() {
   const keyName = Date.now();
 
   if (taskName) {
-    const addTask = new Task(taskName, taskDate, taskPriority, keyName);
+    const addTask = new Task(
+      taskDone,
+      taskName,
+      taskDate,
+      taskPriority,
+      keyName
+    );
     addTask.addToDom();
-    addLocalStorage(taskName, taskDate, taskPriority, keyName);
+    addLocalStorage(taskDone, taskName, taskDate, taskPriority, keyName);
     resetForm();
     // showAddIcon();
     // console.log(localStorage);
