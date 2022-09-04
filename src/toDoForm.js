@@ -45,24 +45,30 @@ formSubmitBtn.setAttribute('type', 'submit');
 formSubmitBtn.setAttribute('value', 'Add');
 formSubmitBtn.setAttribute('id', 'addBtn');
 
-const formCancelBtn = document.createElement('input');
-formCancelBtn.setAttribute('type', 'button');
-formCancelBtn.setAttribute('value', 'Cancel');
-formCancelBtn.setAttribute('id', 'cancelBtn');
+const formResetBtn = document.createElement('input');
+formResetBtn.setAttribute('type', 'button');
+formResetBtn.setAttribute('value', 'Reset');
+formResetBtn.setAttribute('id', 'resetBtn');
+
+formResetBtn.addEventListener('click', () => {
+  inputTitle.value = '';
+  inputDate.value = dateToday;
+  document.getElementById('priority').value = 'Low';
+});
 
 firstFormDiv.append(
   inputTitle,
   inputDate,
   inputPriority,
   formSubmitBtn,
-  formCancelBtn
+  formResetBtn
 );
 
 formDiv.append(firstFormDiv);
 
 export {
   formDiv,
-  formCancelBtn,
+  formResetBtn,
   formSubmitBtn,
   inputTitle,
   inputDate,

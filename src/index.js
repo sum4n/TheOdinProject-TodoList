@@ -1,8 +1,8 @@
-import { plusIconDiv } from './toDoToggle';
+// import plusIconDiv from './toDoToggle';
+import { formDiv, inputTitle } from './toDoForm';
 import taskItemsDiv from './toDoAdd';
 import './index.css';
 import './toDoEdit';
-import { inputTitle } from './toDoForm';
 import projectsDiv from './sidebarProject';
 
 const body = document.querySelector('body');
@@ -15,7 +15,7 @@ appContainer.classList.add('appContainer');
 
 const tasksDiv = document.createElement('div');
 tasksDiv.classList.add('tasksDiv');
-tasksDiv.append(plusIconDiv, taskItemsDiv);
+tasksDiv.append(formDiv, taskItemsDiv);
 
 appContainer.append(projectsDiv, tasksDiv);
 
