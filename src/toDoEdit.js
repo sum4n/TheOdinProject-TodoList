@@ -21,7 +21,7 @@ document.addEventListener('click', (e) => {
 
       // console.log(e.target.parentNode.id);
       // console.log(
-      //   e.target.nextSibling.textContent,
+      //   e.target.nextSibling.value,
       //   e.target.nextSibling.nextSibling.textContent,
       //   e.target.nextSibling.nextSibling.nextSibling.textContent
       // );
@@ -48,7 +48,9 @@ document.addEventListener('click', (e) => {
     e.target.value = 'Save';
     e.target.nextSibling.value = 'Cancel';
     e.target.nextSibling.id = 'taskCancel';
-    // console.log(e.target.previousSibling.textContent);
+    // console.log(e.target.parentNode.firstChild);
+    // Disable the checkbox on task edit.
+    e.target.parentNode.firstChild.disabled = true;
 
     const editTask = document.createElement('input');
     editTask.setAttribute('type', 'text');
@@ -97,7 +99,7 @@ document.addEventListener('click', (e) => {
     const pri = e.target.previousSibling.value;
     const keyName = e.target.parentNode.id;
     // console.log(name, date, pri, keyName);
-    const objTask = { name, date, pri, keyName };
+    const objTask = { taskDone: false, name, date, pri, keyName };
     localStorage.setItem(keyName, JSON.stringify(objTask));
     // console.log(localStorage);
     // Reload the page to display change. CHEAT or BRILLIANCE?
