@@ -3,7 +3,7 @@ import { formDiv, inputTitle } from './toDoForm';
 import taskItemsDiv from './toDoAdd';
 import './index.css';
 import './toDoEdit';
-import projectsDiv from './sidebarProject';
+import projectSelectDiv from './selectProject';
 
 const body = document.querySelector('body');
 
@@ -17,9 +17,8 @@ const tasksDiv = document.createElement('div');
 tasksDiv.classList.add('tasksDiv');
 tasksDiv.append(formDiv, taskItemsDiv);
 
-appContainer.append(projectsDiv, tasksDiv);
+appContainer.append(projectSelectDiv, tasksDiv);
 
 body.append(h1, appContainer);
-// body.appendChild(tasksDiv);
-// body.appendChild(taskItemsDiv);
+
 inputTitle.focus();

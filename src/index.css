@@ -7,19 +7,3 @@ h1 {
     text-align: center;
 }
 
-.appContainer {
-    outline: 1px solid orange;
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-
-.projectsDiv {
-    outline: 1px solid yellow;
-    flex-grow: 2;
-}
-
-.tasksDiv {
-    outline: 1px solid blue;
-    flex-grow: 3;
-}
