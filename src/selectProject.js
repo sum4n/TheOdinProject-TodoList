@@ -14,6 +14,12 @@ const projectSelectItems = document.createElement('select');
 projectSelectItems.setAttribute('name', 'projects');
 projectSelectItems.setAttribute('id', 'projects');
 
+const allProjects = document.createElement('option');
+allProjects.setAttribute('value', 'All Projects');
+allProjects.textContent = 'All Projects';
+
+projectSelectItems.append(allProjects);
+
 class Option {
   constructor(projectName) {
     this.projectName = projectName;
@@ -39,10 +45,6 @@ function showOption() {
 }
 
 showOption();
-
-// const optionDefault = document.createElement('option');
-// optionDefault.setAttribute('value', 'Default');
-// optionDefault.textContent = 'Default';
 
 // const optionTwo = document.createElement('option');
 // optionTwo.setAttribute('value', 'two');
@@ -82,8 +84,6 @@ projectDeleteBtn.addEventListener('click', () => {
     addProjectForm.value = '';
   }
 });
-
-// projectSelectItems.append(optionDefault, optionTwo);
 
 projectSelectForm.append(projectSelectFormLabel, projectSelectItems);
 
