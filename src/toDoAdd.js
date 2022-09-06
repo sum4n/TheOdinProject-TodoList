@@ -7,7 +7,7 @@ import {
   dateToday,
   taskItemsDiv,
 } from './toDoForm';
-// import { plusIconDiv, plusIcon } from './toDoToggle';
+import { projectSelectItems } from './selectProject';
 import './toDoAdd.css';
 
 class Task {
@@ -76,8 +76,8 @@ function resetForm() {
 //   plusIconDiv.appendChild(plusIcon);
 // }
 
-function addLocalStorage(taskDone, name, date, pri, keyName) {
-  const obj = { taskDone, name, date, pri, keyName };
+function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
+  const obj = { taskDone, name, date, pri, keyName, projectName };
   localStorage.setItem(keyName, JSON.stringify(obj));
 }
 
@@ -107,6 +107,7 @@ function addToDo() {
   // Add key to identify task. Timestamp as key to sort tasks.
   // keyName becomes id of the task div.
   const keyName = Date.now();
+  const projectName = projectSelectItems.value;
 
   if (taskName) {
     const addTask = new Task(
@@ -117,7 +118,14 @@ function addToDo() {
       keyName
     );
     addTask.addToDom();
-    addLocalStorage(taskDone, taskName, taskDate, taskPriority, keyName);
+    addLocalStorage(
+      taskDone,
+      taskName,
+      taskDate,
+      taskPriority,
+      keyName,
+      projectName
+    );
     resetForm();
     // showAddIcon();
     // console.log(localStorage);

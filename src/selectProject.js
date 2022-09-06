@@ -27,4 +27,4 @@ projectSelectForm.append(projectSelectFormLabel, projectSelectItems);
 
 projectSelectDiv.appendChild(projectSelectForm);
 
-export default projectSelectDiv;
+export { projectSelectItems, projectSelectDiv };

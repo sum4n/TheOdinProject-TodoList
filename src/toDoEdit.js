@@ -12,6 +12,8 @@ document.addEventListener('click', (e) => {
       date: e.target.nextSibling.nextSibling.textContent,
       pri: e.target.nextSibling.nextSibling.nextSibling.textContent,
       keyName: e.target.parentNode.id,
+      projectName: JSON.parse(localStorage.getItem(e.target.parentNode.id))
+        .projectName,
     };
 
     if (e.target.checked) {
@@ -98,8 +100,11 @@ document.addEventListener('click', (e) => {
     const date = e.target.previousSibling.previousSibling.value;
     const pri = e.target.previousSibling.value;
     const keyName = e.target.parentNode.id;
+    const { projectName } = JSON.parse(
+      localStorage.getItem(e.target.parentNode.id)
+    );
     // console.log(name, date, pri, keyName);
-    const objTask = { taskDone: false, name, date, pri, keyName };
+    const objTask = { taskDone: false, name, date, pri, keyName, projectName };
     localStorage.setItem(keyName, JSON.stringify(objTask));
     // console.log(localStorage);
     // Reload the page to display change. CHEAT or BRILLIANCE?
