@@ -4,6 +4,7 @@ const projectSelectDiv = document.createElement('div');
 projectSelectDiv.classList.add('projectSelectDiv');
 
 const projectSelectForm = document.createElement('form');
+projectSelectForm.setAttribute('id', 'projectForm');
 
 const projectSelectFormLabel = document.createElement('label');
 projectSelectFormLabel.setAttribute('for', 'projects');
@@ -25,6 +26,14 @@ projectSelectItems.append(optionDefault, optionTwo);
 
 projectSelectForm.append(projectSelectFormLabel, projectSelectItems);
 
-projectSelectDiv.appendChild(projectSelectForm);
+const projectAddBtn = document.createElement('button');
+projectAddBtn.textContent = 'Add Project';
+projectAddBtn.setAttribute('id', 'projectAddBtn');
+
+const projectDeleteBtn = document.createElement('button');
+projectDeleteBtn.textContent = 'Delete Project';
+projectDeleteBtn.setAttribute('id', 'projectDeleteBtn');
+
+projectSelectDiv.append(projectSelectForm, projectAddBtn, projectDeleteBtn);
 
 export { projectSelectItems, projectSelectDiv };
