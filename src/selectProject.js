@@ -14,13 +14,39 @@ const projectSelectItems = document.createElement('select');
 projectSelectItems.setAttribute('name', 'projects');
 projectSelectItems.setAttribute('id', 'projects');
 
-const optionDefault = document.createElement('option');
-optionDefault.setAttribute('value', 'default');
-optionDefault.textContent = 'Default Project';
+class Option {
+  constructor(projectName) {
+    this.projectName = projectName;
+  }
 
-const optionTwo = document.createElement('option');
-optionTwo.setAttribute('value', 'two');
-optionTwo.textContent = 'Project Two';
+  populateProjects() {
+    const option = document.createElement('option');
+    option.setAttribute('value', this.projectName);
+    option.textContent = this.projectName;
+
+    projectSelectItems.append(option);
+  }
+}
+
+function showOption() {
+  const keys = Object.keys(localStorage).sort();
+  keys.forEach((key) => {
+    const projectname = JSON.parse(localStorage.getItem(key)).projectName;
+    console.log(projectname);
+    const projectsOption = new Option(projectname);
+    projectsOption.populateProjects();
+  });
+}
+
+showOption();
+
+// const optionDefault = document.createElement('option');
+// optionDefault.setAttribute('value', 'Default');
+// optionDefault.textContent = 'Default';
+
+// const optionTwo = document.createElement('option');
+// optionTwo.setAttribute('value', 'two');
+// optionTwo.textContent = 'Project Two';
 
 const projectAddBtn = document.createElement('button');
 projectAddBtn.textContent = 'Add Project';
@@ -57,7 +83,7 @@ projectDeleteBtn.addEventListener('click', () => {
   }
 });
 
-projectSelectItems.append(optionDefault, optionTwo);
+// projectSelectItems.append(optionDefault, optionTwo);
 
 projectSelectForm.append(projectSelectFormLabel, projectSelectItems);
 
