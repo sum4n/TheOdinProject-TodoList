@@ -22,10 +22,6 @@ const optionTwo = document.createElement('option');
 optionTwo.setAttribute('value', 'two');
 optionTwo.textContent = 'Project Two';
 
-projectSelectItems.append(optionDefault, optionTwo);
-
-projectSelectForm.append(projectSelectFormLabel, projectSelectItems);
-
 const projectAddBtn = document.createElement('button');
 projectAddBtn.textContent = 'Add Project';
 projectAddBtn.setAttribute('id', 'projectAddBtn');
@@ -33,6 +29,37 @@ projectAddBtn.setAttribute('id', 'projectAddBtn');
 const projectDeleteBtn = document.createElement('button');
 projectDeleteBtn.textContent = 'Delete Project';
 projectDeleteBtn.setAttribute('id', 'projectDeleteBtn');
+
+const addProjectForm = document.createElement('input');
+addProjectForm.setAttribute('type', 'text');
+addProjectForm.setAttribute('placeholder', 'Enter Project Name');
+addProjectForm.setAttribute('id', 'addProjectForm');
+
+projectAddBtn.addEventListener('click', () => {
+  if (projectAddBtn.textContent === 'Add Project') {
+    console.log('hello');
+    projectSelectForm.replaceWith(addProjectForm);
+    projectAddBtn.textContent = 'Add';
+    projectDeleteBtn.textContent = 'Cancel';
+  } else if (projectAddBtn.textContent === 'Add' && addProjectForm.value) {
+    console.log('hi');
+  }
+});
+
+projectDeleteBtn.addEventListener('click', () => {
+  if (projectDeleteBtn.textContent === 'Delete Project') {
+    console.log('Project Deleted');
+  } else if (projectDeleteBtn.textContent === 'Cancel') {
+    addProjectForm.replaceWith(projectSelectForm);
+    projectDeleteBtn.textContent = 'Delete Project';
+    projectAddBtn.textContent = 'Add Project';
+    addProjectForm.value = '';
+  }
+});
+
+projectSelectItems.append(optionDefault, optionTwo);
+
+projectSelectForm.append(projectSelectFormLabel, projectSelectItems);
 
 projectSelectDiv.append(projectSelectForm, projectAddBtn, projectDeleteBtn);
 
