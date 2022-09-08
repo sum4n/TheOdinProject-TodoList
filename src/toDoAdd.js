@@ -78,7 +78,17 @@ function resetForm() {
 
 function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
   const obj = { taskDone, name, date, pri, keyName, projectName };
-  localStorage.setItem(keyName, JSON.stringify(obj));
+  let taskList = [];
+  if (localStorage.length === 0) {
+    taskList.push(obj);
+    // console.log(JSON.stringify(taskList));
+    localStorage.setItem(projectName, JSON.stringify(taskList));
+  } else {
+    taskList = JSON.parse(localStorage.getItem(projectName));
+    // console.log(taskList);
+    taskList.push(obj);
+    localStorage.setItem(projectName, JSON.stringify(taskList));
+  }
 }
 
 function getLocalStorage() {
