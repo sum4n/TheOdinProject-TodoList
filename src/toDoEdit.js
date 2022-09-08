@@ -1,40 +1,33 @@
 // Making use of parent sibling selectors
 // Listening to event on full document.
 document.addEventListener('click', (e) => {
+  const projectName = document.getElementById('projects').value;
+  // Get e.parentNode's index.
+  const taskDivs = document.querySelectorAll('.taskDiv');
+  const taskDivsList = Array.from(taskDivs);
+  const taskIndex = taskDivsList.indexOf(e.target.parentNode);
   //   console.log(e);
   //   console.log(e.target.nextSibling.id);
   //   If event target has a sibling and
   //   its name is  'taskTitle', act on it.
   if (e.target.nextSibling && e.target.nextSibling.id === 'taskTitle') {
-    const obj = {
-      taskDone: e.target.checked,
-      name: e.target.nextSibling.textContent,
-      date: e.target.nextSibling.nextSibling.textContent,
-      pri: e.target.nextSibling.nextSibling.nextSibling.textContent,
-      keyName: e.target.parentNode.id,
-      projectName: JSON.parse(localStorage.getItem(e.target.parentNode.id))
-        .projectName,
-    };
-
     if (e.target.checked) {
       e.target.nextSibling.style.setProperty('text-decoration', 'line-through');
-      localStorage.setItem(e.target.parentNode.id, JSON.stringify(obj));
       e.target.nextSibling.nextSibling.nextSibling.nextSibling.disabled = true;
+      // console.log(e.target.parentNode);
 
-      // console.log(e.target.parentNode.id);
-      // console.log(
-      //   e.target.nextSibling.value,
-      //   e.target.nextSibling.nextSibling.textContent,
-      //   e.target.nextSibling.nextSibling.nextSibling.textContent
-      // );
+      const tasksList = JSON.parse(localStorage.getItem(projectName));
+      tasksList[taskIndex].taskDone = true;
+      localStorage.setItem(projectName, JSON.stringify(tasksList));
 
-      // console.log(localStorage.getItem(e.target.parentNode.id));
-      // console.log(e.target.nextSibling.nextSibling.nextSibling.nextSibling);
+      // console.log(tasksList[taskIndex].taskDone, tasksList);
     } else {
       e.target.nextSibling.style.setProperty('text-decoration', 'none');
-      localStorage.setItem(e.target.parentNode.id, JSON.stringify(obj));
       e.target.nextSibling.nextSibling.nextSibling.nextSibling.disabled = false;
 
+      const tasksList = JSON.parse(localStorage.getItem(projectName));
+      tasksList[taskIndex].taskDone = false;
+      localStorage.setItem(projectName, JSON.stringify(tasksList));
       // console.log(localStorage.getItem(e.target.parentNode.id));
     }
   }
@@ -100,9 +93,9 @@ document.addEventListener('click', (e) => {
     const date = e.target.previousSibling.previousSibling.value;
     const pri = e.target.previousSibling.value;
     const keyName = e.target.parentNode.id;
-    const { projectName } = JSON.parse(
-      localStorage.getItem(e.target.parentNode.id)
-    );
+    // const { projectName } = JSON.parse(
+    //   localStorage.getItem(e.target.parentNode.id)
+    // );
     // console.log(name, date, pri, keyName);
     const objTask = { taskDone: false, name, date, pri, keyName, projectName };
     localStorage.setItem(keyName, JSON.stringify(objTask));
