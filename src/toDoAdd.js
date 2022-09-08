@@ -92,11 +92,9 @@ function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
 }
 
 function getLocalStorage() {
-  // sort the keys, because object has no order. Then loop.
-  const keys = Object.keys(localStorage).sort();
-  keys.forEach((key) => {
-    const task = JSON.parse(localStorage.getItem(key));
-    // console.log(task);
+  const key = projectSelectItems.value;
+  const tasksArray = JSON.parse(localStorage.getItem(key));
+  tasksArray.forEach((task) => {
     const toDoTask = new Task(
       task.taskDone,
       task.name,
