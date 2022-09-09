@@ -36,7 +36,9 @@ document.addEventListener('click', (e) => {
     // console.log(e.target.parentNode.id);
     // console.log(e.target);
     e.target.parentNode.remove();
-    localStorage.removeItem(e.target.parentNode.id);
+    const tasksList = JSON.parse(localStorage.getItem(projectName));
+    tasksList.splice(taskIndex, 1);
+    localStorage.setItem(projectName, JSON.stringify(tasksList));
   }
 
   if (e.target.id === 'taskEdit' && e.target.value === 'Edit') {
