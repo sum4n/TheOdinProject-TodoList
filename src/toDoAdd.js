@@ -79,7 +79,7 @@ function resetForm() {
 function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
   const obj = { taskDone, name, date, pri, keyName, projectName };
   let taskList = [];
-  if (localStorage.length === 0) {
+  if (!localStorage.getItem(projectName)) {
     taskList.push(obj);
     // console.log(JSON.stringify(taskList));
     localStorage.setItem(projectName, JSON.stringify(taskList));

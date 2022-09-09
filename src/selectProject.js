@@ -18,7 +18,11 @@ const allProjects = document.createElement('option');
 allProjects.setAttribute('value', 'All Projects');
 allProjects.textContent = 'All Projects';
 
-projectSelectItems.append(allProjects);
+const myProjects = document.createElement('option');
+myProjects.setAttribute('value', 'My Projects');
+myProjects.textContent = 'My Projects';
+
+projectSelectItems.append(allProjects, myProjects);
 
 class Option {
   constructor(projectName) {
