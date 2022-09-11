@@ -95,6 +95,10 @@ function getLocalStorage() {
   console.log(projectSelectItems.value);
   if (projectSelectItems.value) {
     const key = projectSelectItems.value;
+    // Empty the taskItemsDiv, before putting taskDiv.
+    while (taskItemsDiv.lastChild) {
+      taskItemsDiv.removeChild(taskItemsDiv.lastChild);
+    }
     if (localStorage.getItem(key)) {
       const tasksArray = JSON.parse(localStorage.getItem(key));
       tasksArray.forEach((task) => {
@@ -155,6 +159,10 @@ formSubmitBtn.addEventListener('click', (e) => {
   e.preventDefault();
   addToDo();
   inputTitle.focus();
+});
+
+projectSelectItems.addEventListener('change', () => {
+  getLocalStorage();
 });
 
 // // dummy data
