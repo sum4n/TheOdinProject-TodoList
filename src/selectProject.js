@@ -93,7 +93,10 @@ projectAddBtn.addEventListener('click', () => {
 
 projectDeleteBtn.addEventListener('click', () => {
   if (projectDeleteBtn.textContent === 'Delete Project') {
-    console.log('Project Deleted');
+    const item = projectSelectItems.value;
+    localStorage.removeItem(item);
+    console.log(`${item} deleted`);
+    document.location.reload();
   } else if (projectDeleteBtn.textContent === 'Cancel') {
     addProjectForm.replaceWith(projectSelectForm);
     projectDeleteBtn.textContent = 'Delete Project';
