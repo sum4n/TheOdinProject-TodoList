@@ -39,9 +39,9 @@ class Option {
 }
 
 function showOption() {
-  const keys = Object.keys(localStorage).sort();
+  const keys = Object.keys(localStorage);
   keys.forEach((key) => {
-    const projectname = JSON.parse(localStorage.getItem(key)).projectName;
+    const projectname = key;
     console.log(projectname);
     const projectsOption = new Option(projectname);
     projectsOption.populateProjects();

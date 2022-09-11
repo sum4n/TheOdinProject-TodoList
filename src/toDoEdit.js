@@ -2,7 +2,10 @@
 // Listening to event on full document.
 document.addEventListener('click', (e) => {
   // Listen events only in taskItemsDiv div.
-  if (e.target.parentNode.parentNode.className === 'taskItemsDiv') {
+  if (
+    e.target.parentNode.parentNode &&
+    e.target.parentNode.parentNode.className === 'taskItemsDiv'
+  ) {
     // console.log(e.target.parentNode.parentNode.className);
     const projectName = document.getElementById('projects').value;
     // Get e.parentNode's index.

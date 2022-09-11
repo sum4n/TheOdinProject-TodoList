@@ -92,18 +92,23 @@ function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
 }
 
 function getLocalStorage() {
-  const key = projectSelectItems.value;
-  const tasksArray = JSON.parse(localStorage.getItem(key));
-  tasksArray.forEach((task) => {
-    const toDoTask = new Task(
-      task.taskDone,
-      task.name,
-      task.date,
-      task.pri,
-      task.keyName
-    );
-    toDoTask.addToDom();
-  });
+  console.log(projectSelectItems.value);
+  if (projectSelectItems.value) {
+    const key = projectSelectItems.value;
+    if (localStorage.getItem(key)) {
+      const tasksArray = JSON.parse(localStorage.getItem(key));
+      tasksArray.forEach((task) => {
+        const toDoTask = new Task(
+          task.taskDone,
+          task.name,
+          task.date,
+          task.pri,
+          task.keyName
+        );
+        toDoTask.addToDom();
+      });
+    }
+  }
 }
 
 function addToDo() {
