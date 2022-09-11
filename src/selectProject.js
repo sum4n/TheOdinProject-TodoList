@@ -14,15 +14,15 @@ const projectSelectItems = document.createElement('select');
 projectSelectItems.setAttribute('name', 'projects');
 projectSelectItems.setAttribute('id', 'projects');
 
-const allProjects = document.createElement('option');
-allProjects.setAttribute('value', 'All Projects');
-allProjects.textContent = 'All Projects';
+const defaultProjects = document.createElement('option');
+defaultProjects.setAttribute('value', 'Default');
+defaultProjects.textContent = 'Default';
 
-const myProjects = document.createElement('option');
-myProjects.setAttribute('value', 'My Projects');
-myProjects.textContent = 'My Projects';
+// const myProjects = document.createElement('option');
+// myProjects.setAttribute('value', 'My Projects');
+// myProjects.textContent = 'My Projects';
 
-projectSelectItems.append(allProjects, myProjects);
+projectSelectItems.append(defaultProjects);
 
 class Option {
   constructor(projectName) {
@@ -42,6 +42,9 @@ function showOption() {
   const keys = Object.keys(localStorage);
   keys.forEach((key) => {
     const projectname = key;
+    if (projectname === 'Default') {
+      return;
+    }
     console.log(projectname);
     const projectsOption = new Option(projectname);
     projectsOption.populateProjects();
