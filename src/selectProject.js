@@ -69,12 +69,25 @@ addProjectForm.setAttribute('id', 'addProjectForm');
 
 projectAddBtn.addEventListener('click', () => {
   if (projectAddBtn.textContent === 'Add Project') {
-    console.log('hello');
+    console.log('Project form opened');
     projectSelectForm.replaceWith(addProjectForm);
     projectAddBtn.textContent = 'Add';
     projectDeleteBtn.textContent = 'Cancel';
+    addProjectForm.focus();
   } else if (projectAddBtn.textContent === 'Add' && addProjectForm.value) {
-    console.log('hi');
+    const projectName = projectAddBtn.previousSibling.value;
+    console.log(`Project option ${projectName} added`);
+    const newProject = new Option(projectName);
+    newProject.populateProjects();
+
+    localStorage.setItem(projectName, '');
+
+    addProjectForm.replaceWith(projectSelectForm);
+    projectDeleteBtn.textContent = 'Delete Project';
+    projectAddBtn.textContent = 'Add Project';
+    addProjectForm.value = '';
+
+    projectSelectItems.value = projectName;
   }
 });
 
