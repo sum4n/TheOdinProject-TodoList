@@ -1,3 +1,4 @@
+import { getLocalStorage } from './toDoAdd';
 // Making use of parent sibling selectors
 // Listening to event on full document.
 document.addEventListener('click', (e) => {
@@ -120,11 +121,12 @@ document.addEventListener('click', (e) => {
       taskList[taskIndex] = editedTask;
       localStorage.setItem(projectName, JSON.stringify(taskList));
 
-      // Reload the page to display change. CHEAT or BRILLIANCE?
-      document.location.reload();
+      // Populate tasks.
+      getLocalStorage();
     }
     if (e.target.id === 'taskCancel' && e.target.value === 'Cancel') {
-      document.location.reload();
+      // Populate tasks
+      getLocalStorage();
     }
   }
 });

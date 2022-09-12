@@ -183,4 +183,4 @@ if (localStorage.length > 0) {
   getLocalStorage();
 }
 
-export default taskItemsDiv;
+export { getLocalStorage, taskItemsDiv };

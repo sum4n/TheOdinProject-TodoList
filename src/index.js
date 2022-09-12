@@ -1,6 +1,6 @@
 // import plusIconDiv from './toDoToggle';
 import { formDiv, inputTitle } from './toDoForm';
-import taskItemsDiv from './toDoAdd';
+import { taskItemsDiv } from './toDoAdd';
 import './index.css';
 import './toDoEdit';
 import { projectSelectDiv } from './selectProject';
