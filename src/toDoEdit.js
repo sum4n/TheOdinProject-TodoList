@@ -105,11 +105,8 @@ document.addEventListener('click', (e) => {
       const date = e.target.previousSibling.previousSibling.value;
       const pri = e.target.previousSibling.value;
       const keyName = e.target.parentNode.id;
-      // const { projectName } = JSON.parse(
-      //   localStorage.getItem(e.target.parentNode.id)
-      // );
-      // console.log(name, date, pri, keyName);
-      const objTask = {
+
+      const editedTask = {
         taskDone: false,
         name,
         date,
@@ -117,8 +114,12 @@ document.addEventListener('click', (e) => {
         keyName,
         projectName,
       };
-      localStorage.setItem(keyName, JSON.stringify(objTask));
-      // console.log(localStorage);
+
+      const taskList = JSON.parse(localStorage.getItem(projectName));
+      // Replace the original task Object with editedTask Object.
+      taskList[taskIndex] = editedTask;
+      localStorage.setItem(projectName, JSON.stringify(taskList));
+
       // Reload the page to display change. CHEAT or BRILLIANCE?
       document.location.reload();
     }
