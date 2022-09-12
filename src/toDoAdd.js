@@ -92,7 +92,7 @@ function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
 }
 
 function getLocalStorage() {
-  console.log(projectSelectItems.value);
+  // console.log(projectSelectItems.value);
   if (projectSelectItems.value) {
     const key = projectSelectItems.value;
     // Empty the taskItemsDiv, before putting taskDiv.

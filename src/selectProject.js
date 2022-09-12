@@ -46,7 +46,7 @@ function showOption() {
     if (projectname === 'Default') {
       return;
     }
-    console.log(projectname);
+    // console.log(projectname);
     const projectsOption = new Option(projectname);
     projectsOption.populateProjects();
   });
@@ -73,14 +73,14 @@ addProjectForm.setAttribute('id', 'addProjectForm');
 
 projectAddBtn.addEventListener('click', () => {
   if (projectAddBtn.textContent === 'Add Project') {
-    console.log('Project form opened');
+    // console.log('Project form opened');
     projectSelectForm.replaceWith(addProjectForm);
     projectAddBtn.textContent = 'Add';
     projectDeleteBtn.textContent = 'Cancel';
     addProjectForm.focus();
   } else if (projectAddBtn.textContent === 'Add' && addProjectForm.value) {
     const projectName = projectAddBtn.previousSibling.value;
-    console.log(`Project option ${projectName} added`);
+    // console.log(`Project option ${projectName} added`);
     const newProject = new Option(projectName);
     newProject.populateProjects();
 
@@ -103,7 +103,7 @@ projectDeleteBtn.addEventListener('click', () => {
   if (projectDeleteBtn.textContent === 'Delete Project') {
     const item = projectSelectItems.value;
     localStorage.removeItem(item);
-    console.log(`${item} deleted`);
+    // console.log(`${item} deleted`);
     document.location.reload();
   } else if (projectDeleteBtn.textContent === 'Cancel') {
     addProjectForm.replaceWith(projectSelectForm);
