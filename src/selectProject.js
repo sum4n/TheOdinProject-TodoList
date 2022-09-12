@@ -1,4 +1,5 @@
 import './selectProject.css';
+import { taskItemsDiv } from './toDoForm';
 
 const projectSelectDiv = document.createElement('div');
 projectSelectDiv.classList.add('projectSelectDiv');
@@ -91,6 +92,10 @@ projectAddBtn.addEventListener('click', () => {
     addProjectForm.value = '';
 
     projectSelectItems.value = projectName;
+
+    while (taskItemsDiv.lastChild) {
+      taskItemsDiv.removeChild(taskItemsDiv.lastChild);
+    }
   }
 });
 
