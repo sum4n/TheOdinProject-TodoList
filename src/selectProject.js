@@ -73,20 +73,22 @@ projectAddBtn.addEventListener('click', () => {
   } else if (projectAddBtn.textContent === 'Add' && addProjectForm.value) {
     const projectName = projectAddBtn.previousSibling.value;
     // console.log(`Project option ${projectName} added`);
-    const newProject = new Option(projectName);
-    newProject.populateProjects();
+    if (!Object.keys(localStorage).includes(projectName)) {
+      const newProject = new Option(projectName);
+      newProject.populateProjects();
 
-    localStorage.setItem(projectName, '');
+      localStorage.setItem(projectName, '');
 
-    addProjectForm.replaceWith(projectSelectForm);
-    projectDeleteBtn.textContent = 'Delete Project';
-    projectAddBtn.textContent = 'Add Project';
-    addProjectForm.value = '';
+      addProjectForm.replaceWith(projectSelectForm);
+      projectDeleteBtn.textContent = 'Delete Project';
+      projectAddBtn.textContent = 'Add Project';
+      addProjectForm.value = '';
 
-    projectSelectItems.value = projectName;
+      projectSelectItems.value = projectName;
 
-    while (taskItemsDiv.lastChild) {
-      taskItemsDiv.removeChild(taskItemsDiv.lastChild);
+      while (taskItemsDiv.lastChild) {
+        taskItemsDiv.removeChild(taskItemsDiv.lastChild);
+      }
     }
   }
 });
