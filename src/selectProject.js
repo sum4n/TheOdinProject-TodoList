@@ -19,10 +19,6 @@ const defaultProjects = document.createElement('option');
 defaultProjects.setAttribute('value', 'Default');
 defaultProjects.textContent = 'Default';
 
-// const myProjects = document.createElement('option');
-// myProjects.setAttribute('value', 'My Projects');
-// myProjects.textContent = 'My Projects';
-
 projectSelectItems.append(defaultProjects);
 
 class Option {
@@ -53,10 +49,6 @@ function showOption() {
 }
 
 showOption();
-
-// const optionTwo = document.createElement('option');
-// optionTwo.setAttribute('value', 'two');
-// optionTwo.textContent = 'Project Two';
 
 const projectAddBtn = document.createElement('button');
 projectAddBtn.textContent = 'Add Project';

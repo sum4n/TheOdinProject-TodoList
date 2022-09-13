@@ -71,11 +71,6 @@ function resetForm() {
   document.getElementById('priority').value = 'Low';
 }
 
-// function showAddIcon() {
-//   plusIconDiv.removeChild(formDiv);
-//   plusIconDiv.appendChild(plusIcon);
-// }
-
 function addLocalStorage(taskDone, name, date, pri, keyName, projectName) {
   const obj = { taskDone, name, date, pri, keyName, projectName };
   let taskList = [];
@@ -144,10 +139,7 @@ function addToDo() {
       projectName
     );
     resetForm();
-    // showAddIcon();
-    // console.log(localStorage);
   }
-  // console.log(taskName, taskDate, taskPriority);
 }
 
 formDiv.addEventListener('submit', (e) => {
@@ -165,20 +157,6 @@ projectSelectItems.addEventListener('change', () => {
   getLocalStorage();
 });
 
-// // dummy data
-// function addDummyToLocalStorage() {
-//   const dObj = {
-//     name: 'Dummy Task',
-//     date: '2022-08-22',
-//     pri: 'High',
-//     key: '00',
-//   };
-//   localStorage.setItem('00', JSON.stringify(dObj));
-// }
-// addDummyToLocalStorage();
-
-// Get tasks from localStorage and add to dom.
-// getLocalStorage();
 if (localStorage.length > 0) {
   getLocalStorage();
 }
